@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+  <category>
+    <pattern>*</pattern>
+    <template>Hello, my name is Jenna! Would you like to tell me yours?
+    <button><text>Yes</text><postback>USER_GIVES_NAME</postback></button>
+    <button><text>No</text><postback>USER_SAID_NO</postback></button>
+    </template>
+    </category>
+</aiml>
