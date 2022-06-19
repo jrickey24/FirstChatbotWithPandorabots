@@ -4,10 +4,12 @@
   <category>
      <pattern>*</pattern>
         <template>
-             <message>Hello, my name is Arge! Congratulations on your updcoming graduation!</message>
              <message>To end our conversation at anytime, type "end"</message>
+             <delay>2</delay>
+             <message>Hello, my name is Arge! Congratulations on your updcoming graduation!</message>
+             <delay>2</delay>    
              <message>Based on your answers to a few questions, I can suggest a career for you with a link to learn more about it.</message>
-             <delay>5</delay>
+             <delay>2</delay>
              <message>Would you like to explore computer science careers? </message>
              <button><text>Yes</text><postback>ExploreCareersIsTrue</postback></button>
              <button><text>No</text><postback>ExploreCareersIsFalse</postback></button>
@@ -17,8 +19,9 @@
     <category>
         <pattern>ExploreCareersIsTrue</pattern>
             <template>
+                <delay>2</delay>
                 <message>Alright then, let's get started!</message>
-                <delay>5</delay>
+                <delay>3</delay>
                 <message>Did you enjoy at least one of your discrete math courses?</message>
                 <button><text>Yes</text><postback>LikesMathIsTrue</postback></button>
                 <button><text>No</text><postback>LikesMathIsFalse</postback></button>
@@ -28,6 +31,7 @@
     <category>
         <pattern>LikesMathIsTrue</pattern>
             <template>
+                <delay>2</delay>
                 <message>Please select the one that sounds more interesting to you.</message>
                 <button><text>Developing a web or desktop application.</text><postback>SDIsTrue</postback></button>
                 <button><text>Developing an intelligent system capable of understanding user intentions based on input.</text><postback>AIIsTrue</postback></button>
@@ -37,13 +41,15 @@
     <category>
         <pattern>SDIsTrue</pattern>
             <template>
+                <message>Thinking...</message>
+                <delay>2</delay>
                 <message>You might be interested in becoming a Software Engineer! Click the link below for more information.</message>
                 <button><text>Click Me!</text><url><map name="careerinfo">Software Engineer</map></url></button>
             </template>        
     </category>
     <!--END SESSION-->
   <category>
-      <lowercase><pattern>end</pattern></lowercase>
-        <template>Tata for now!</template>
+    <pattern>end</pattern>
+    <template>Tata for now!</template>
   </category>
 </aiml>
