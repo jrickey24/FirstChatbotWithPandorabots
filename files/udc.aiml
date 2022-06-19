@@ -1,10 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml>
+  <!--INITIATE CONVERSATION-->  
   <category>
-    <pattern>*</pattern>
-    <template>Hello, my name is Jenna! Would you like to tell me yours?
-    <button><text>Yes</text><postback>USER_GIVES_NAME</postback></button>
-    <button><text>No</text><postback>USER_SAID_NO</postback></button>
-    </template>
+     <pattern>*</pattern>
+        <template>
+             <message>Hello, my name is Arge! Congratulations on your updcoming graduation!</message>
+             <message>To end our conversation at anytime, type "end"</message>
+             <message>Based on your answers to a few questions, I can suggest a career for you with a link to learn more about it.</message>
+             <delay>5</delay>
+             <message>Would you like to explore computer science careers? </message>
+             <button><text>Yes</text><postback>ExploreCareersIsTrue</postback></button>
+             <button><text>No</text><postback>ExploreCareersIsFalse</postback></button>
+        </template>
     </category>
+    <!--ASK FIRST QUESTION-->
+    <category>
+        <pattern>ExploreCareersIsTrue</pattern>
+            <template>
+                <message>Alright then, let's get started!</message>
+                <delay>5</delay>
+                <message>Did you enjoy at least one of your discrete math courses?</message>
+                <button><text>Yes</text><postback>LikesMathIsTrue</postback></button>
+                <button><text>No</text><postback>LikesMathIsFalse</postback></button>
+            </template>
+    </category>
+    <!--PATH 1: USER LIKES MATH -> CONSIDER -> SOFTWARE ENGINEERING & AI ENGINEERING-->
+    <category>
+        <pattern>LikesMathIsTrue</pattern>
+            <template>
+                <message>Please select the one that sounds more interesting to you.</message>
+                <button><text>Developing a web or desktop application.</text><postback>SDIsTrue</postback></button>
+                <button><text>Developing an intelligent system capable of understanding user intentions based on input.</text><postback>AIIsTrue</postback></button>
+            </template>        
+    </category>
+    <!--PATH 1: USER LIKES MATH -> USER PREFERS APP DEVELOPMENT -> SOFTWARE ENGINEERING-->
+    <category>
+        <pattern>SDIsTrue</pattern>
+            <template>
+                <message>You might be interested in becoming a Software Engineer! Click the link below for more information.</message>
+                <button><text>Click Me!</text><url><map name="careerinfo">Software Engineer</map></url></button>
+            </template>        
+    </category>
+    <!--END SESSION-->
+  <category>
+      <lowercase><pattern>end</pattern></lowercase>
+        <template>Tata for now!</template>
+  </category>
 </aiml>
