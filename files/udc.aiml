@@ -4,10 +4,10 @@
   <category>
      <pattern>*</pattern>
         <template>
-             <message>To end our conversation at anytime, type "end"</message>
+             <message>To end our conversation at anytime, type "bye"</message>
              <delay>2</delay>
              <message>Hello, my name is Arge! Congratulations on your upcoming graduation! 🙌</message>
-             <delay>2</delay>    
+             <delay>3</delay>    
              <message>Based on your answers to a few questions, I can suggest a career for you with a link to learn more about it.</message>
              <delay>2</delay>
              <message>Would you like to explore computer science careers? </message>
@@ -17,8 +17,18 @@
     </category>
     <!--USER DECLINES CAREER QUIZ-->
     <category>
-    <pattern>ExploreCareersIsFalse</pattern>
-    <template>Tata for now! 👋</template>
+        <pattern>ExploreCareersIsFalse</pattern>
+            <template>
+                <message>You know where to find me if you change your mind...😎</message>
+                <delay>2</delay>
+                <random>
+                     <li> Tata for now!👋 </li>
+                     <li> Cheerio!👋 </li>
+                     <li> Take care!👋</li>
+                     <li> Have a great day!👋</li>
+                     <li> Happy Engineering!👋</li>
+                </random>
+            </template>
     </category>            
     <!--ASK FIRST QUESTION-->
     <category>
@@ -37,7 +47,7 @@
         <pattern>LikesMathIsTrue</pattern>
             <template>
                 <delay>2</delay>
-                <message>Please select the one that sounds more interesting to you.</message>
+                <message>That adds up. 😅 Please select the one that sounds more interesting to you.</message>
                 <button><text>Developing a web or desktop application.</text><postback>SDIsTrue</postback></button>
                 <button><text>Developing an intelligent system capable of understanding user intentions based on input.</text><postback>AIIsTrue</postback></button>
             </template>        
@@ -113,8 +123,18 @@
             </template>        
     </category>
     <!--END SESSION-->
-  <category>
-    <pattern>end</pattern>
-    <template>Tata for now! 👋</template>
+   <category>
+        <pattern>bye</pattern>
+             <template>
+                 <message>You know where to find me if you change your mind...😎</message>
+                 <delay>2</delay>
+                 <random>
+                     <li> Tata for now!👋 </li>
+                     <li> Cheerio!👋 </li>
+                     <li> Take care!👋</li>
+                     <li> Have a great day!👋</li>
+                     <li> Happy Engineering!👋</li>
+                 </random>
+             </template>
   </category>
 </aiml>
