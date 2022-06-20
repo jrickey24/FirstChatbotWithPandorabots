@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml>
-  <!--INITIATE CONVERSATION-->  
+  <!--INITIATE CONVERSATION & GET USER CONFIRMATION-->  
   <category>
      <pattern>*</pattern>
         <template>
@@ -15,6 +15,11 @@
              <button><text>No</text><postback>ExploreCareersIsFalse</postback></button>
         </template>
     </category>
+    <!--USER DECLINES CAREER QUIZ-->
+    <category>
+    <pattern>ExploreCareersIsFalse</pattern>
+    <template>Tata for now! 👋</template>
+    </category>            
     <!--ASK FIRST QUESTION-->
     <category>
         <pattern>ExploreCareersIsTrue</pattern>
@@ -57,9 +62,59 @@
                 <button><text>Click Me!</text><url><map name="careerinfo">AI Engineer</map></url></button>
             </template>        
     </category>
+    <!--PATH 2: USER DISLIKES MATH -> CONSIDER -> CYBER SECURITY ENGINEERING, BIG DATA ENGINEERING, & QA ENGINEERING-->
+    <category>
+        <pattern>LikesMathIsFalse</pattern>
+            <template>
+                <delay>2</delay>
+                <message>Would you enjoy creating scripts to assess and validate the functionality of new software?</message>
+                <button><text>Yes</text><postback>QAIsTrue</postback></button>
+                <button><text>No</text><postback>QAIsFalse</postback></button>
+            </template>        
+    </category>
+    <!--PATH 2: USER DISLIKES MATH -> USER ENJOYS TESTING SOFTWARE -> QA ENGINEERING-->
+    <category>
+        <pattern>QAIsTrue</pattern>
+            <template>
+                <message>Thinking...🙇</message>
+                <delay>2</delay>
+                <message>You might be interested in becoming a Quality Assurance (QA) Engineer! Click the link below for more information.</message>
+                <button><text>Click Me!</text><url><map name="careerinfo">QA Engineer</map></url></button>
+            </template>        
+    </category>
+    <!--PATH 2: USER DISLIKES MATH -> DOESN'T ENJOY TESTING SOFTWARE -> CONSIDER -> CYBER SECURITY ENGINEERING & BIG DATA ENGINEERING-->
+    <category>
+        <pattern>QAIsFalse</pattern>
+            <template>
+                <delay>2</delay>
+                <message>Please select the one that sounds more interesting to you.</message>
+                <button><text>Building systems responsible for protecting computing resources.</text><postback>CSEIsTrue</postback></button>
+                <button><text>Creating scripts to transfer large sets of data between systems.</text><postback>CSEIsFalse</postback></button>
+            </template>        
+    </category>
+    <!--PATH 2: USER DISLIKES MATH -> DOESN'T PREFER SOFTWARE TESTING -> PREFERS PROTECTING SYSTEMS -> CYBER SECURITY ENGINEERING-->
+    <category>
+        <pattern>CSEIsTrue</pattern>
+            <template>
+                <message>Thinking...🙇</message>
+                <delay>2</delay>
+                <message>You might be interested in becoming a Cyber Security Engineer! Click the link below for more information.</message>
+                <button><text>Click Me!</text><url><map name="careerinfo">Cyber Security Engineer</map></url></button>
+            </template>        
+    </category>
+    <!--PATH 2: USER DISLIKES MATH -> DOESN'T PREFER SOFTWARE TESTING -> PREFERS ETL -> BIG DATA ENGINEERING-->
+    <category>
+        <pattern>CSEIsFalse</pattern>
+            <template>
+                <message>Thinking...🙇</message>
+                <delay>2</delay>
+                <message>You might be interested in becoming a Big Data Engineer! Click the link below for more information.</message>
+                <button><text>Click Me!</text><url><map name="careerinfo">Big Data Engineer</map></url></button>
+            </template>        
+    </category>
     <!--END SESSION-->
   <category>
     <pattern>end</pattern>
-    <template>Tata for now!</template>
+    <template>Tata for now! 👋</template>
   </category>
 </aiml>
