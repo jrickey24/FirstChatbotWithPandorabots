@@ -6,7 +6,7 @@
         <template>
              <message>To end our conversation at anytime, type "end"</message>
              <delay>2</delay>
-             <message>Hello, my name is Arge! Congratulations on your updcoming graduation!</message>
+             <message>Hello, my name is Arge! Congratulations on your upcoming graduation! 🙌</message>
              <delay>2</delay>    
              <message>Based on your answers to a few questions, I can suggest a career for you with a link to learn more about it.</message>
              <delay>2</delay>
@@ -41,10 +41,20 @@
     <category>
         <pattern>SDIsTrue</pattern>
             <template>
-                <message>Thinking...</message>
+                <message>Thinking...🙇</message>
                 <delay>2</delay>
                 <message>You might be interested in becoming a Software Engineer! Click the link below for more information.</message>
                 <button><text>Click Me!</text><url><map name="careerinfo">Software Engineer</map></url></button>
+            </template>        
+    </category>
+    <!--PATH 1: USER LIKES MATH -> USER PREFERS INTELLIGENT SYSTEM DEVELOPMENT -> AI ENGINEERING-->
+    <category>
+        <pattern>AIIsTrue</pattern>
+            <template>
+                <message>Thinking...🙇</message>
+                <delay>2</delay>
+                <message>You might be interested in becoming an Artificial Intelligence (AI) Engineer! Click the link below for more information.</message>
+                <button><text>Click Me!</text><url><map name="careerinfo">AI Engineer</map></url></button>
             </template>        
     </category>
     <!--END SESSION-->
